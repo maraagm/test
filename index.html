@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-title">📒 Agenda</h1>
+      <button id="btn-add" class="btn btn-primary">+ Nuevo contacto</button>
+    </header>
+
+    <main class="main">
+      <div class="search-wrapper">
+        <input
+          id="search"
+          class="search-input"
+          type="search"
+          placeholder="Buscar por nombre, teléfono o email…"
+          aria-label="Buscar contactos"
+        />
+      </div>
+
+      <p id="empty-state" class="empty-state">
+        No tienes contactos todavía.<br />Pulsa <strong>+ Nuevo contacto</strong> para empezar.
+      </p>
+
+      <div id="contact-list" class="contact-list" role="list"></div>
+    </main>
+
+    <!-- Modal -->
+    <dialog id="modal" class="modal" aria-labelledby="modal-title">
+      <div class="modal-content">
+        <h2 id="modal-title" class="modal-title">Nuevo contacto</h2>
+
+        <form id="contact-form" class="form" novalidate>
+          <input type="hidden" id="field-id" />
+
+          <div class="form-group">
+            <label for="field-name">Nombre *</label>
+            <input id="field-name" type="text" placeholder="Ej. Ana García" autocomplete="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="field-phone">Teléfono</label>
+            <input id="field-phone" type="tel" placeholder="Ej. 600 123 456" autocomplete="tel" />
+          </div>
+
+          <div class="form-group">
+            <label for="field-email">Email</label>
+            <input id="field-email" type="email" placeholder="Ej. ana@ejemplo.com" autocomplete="email" />
+          </div>
+
+          <div class="form-group">
+            <label for="field-notes">Notas</label>
+            <textarea id="field-notes" rows="3" placeholder="Apuntes adicionales…"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="btn-cancel" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- Toast -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="dist/app.js"></script>
+  </body>
+</html>
