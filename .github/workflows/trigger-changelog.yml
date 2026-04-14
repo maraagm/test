@@ -1,0 +1,22 @@
+name: Trigger AI Changelog Generator
+
+on:
+  push:
+    branches:
+      - main
+
+permissions: {}
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Repo A workflow
+        # Replace TU_USUARIO/Repo-A with the actual owner/repository before using this workflow
+        run: |
+          curl -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+          https://api.github.com/repos/TU_USUARIO/Repo-A/dispatches \
+          -d '{"event_type":"generate-changelog"}'

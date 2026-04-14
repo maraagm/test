@@ -1,0 +1,12 @@
+{
+  "name": "agenda",
+  "version": "1.0.0",
+  "description": "Simple agenda app built with HTML and TypeScript",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
